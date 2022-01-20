@@ -2,7 +2,7 @@ package ru.TwoZeros.WeatherStation;
 
 import java.util.ArrayList;
 
-public class WeatherData implements  Subject {
+public class WeatherData implements Subject {
     private ArrayList<Observer> observes;
     private float temperature;
     private float humidity;
@@ -23,6 +23,7 @@ public class WeatherData implements  Subject {
     public WeatherData() {
         observes = new ArrayList<>();
     }
+
     @Override
     public void registerObserver(Observer o) {
         observes.add(o);
@@ -39,11 +40,12 @@ public class WeatherData implements  Subject {
             observer.update();
         }
     }
+
     public void setMeasurements(float temp, float humidity, float pressure) {
-            this.temperature = temp;
-            this.humidity = humidity;
-            this.pressure = pressure;
-            notifyObserver();
-        }
+        this.temperature = temp;
+        this.humidity = humidity;
+        this.pressure = pressure;
+        notifyObserver();
     }
+}
 
